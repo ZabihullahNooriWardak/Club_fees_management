@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/l10n/app_localizations.dart';
 import 'package:untitled1/screens/add_student_page.dart';
 import 'package:untitled1/screens/language_enum.dart';
+import 'package:untitled1/shared/providers/language_provider.dart';
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -26,26 +28,34 @@ LanguageEnum selectedLang = LanguageEnum.english;
         actions: [PopupMenuButton(itemBuilder: (context) {
           return [
             PopupMenuItem(child: Text(AppLocalizations.of(context)!.language,),onTap: () {
+              //
               showModalBottomSheet(context: context, builder: (context) {
-                return StatefulBuilder(
-                  builder: (context, setState) => RadioGroup(
-                    groupValue: selectedLang,
-                     onChanged: (value) {
-                               setState(() {
-                                 selectedLang = value!;
-                               });
-                     },
-                    child: SafeArea(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          RadioListTile(value: LanguageEnum.english,title: Text('English'),),
-                      
-                      
-                          RadioListTile(value: LanguageEnum.persian,title: Text('فارسی'),)
-                          
-                      
-                        ],
+                //
+                return Consumer(
+                  builder: (context, ref, child) =>
+                   StatefulBuilder(
+                    builder: (context, setState) => RadioGroup(
+                      groupValue: selectedLang,
+                       onChanged: (value) {
+                                 setState(() {
+                                   selectedLang = value!;
+                                 });
+
+                                 ref.read(languageProvider.notifier).changeLanguage();
+                       },
+                      //
+                      child: SafeArea(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            RadioListTile(value: LanguageEnum.english,title: Text('English'),),
+
+
+                            RadioListTile(value: LanguageEnum.persian,title: Text('فارسی'),)
+
+
+                          ],
+                        ),
                       ),
                     ),
                   ),

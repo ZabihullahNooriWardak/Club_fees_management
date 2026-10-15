@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 class AddStudentPage extends StatefulWidget {
   const AddStudentPage({super.key});
@@ -13,12 +11,8 @@ class _AddStudentPageState extends State<AddStudentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('  ثبت کردن شاگرد جدید '),),
-      body: Column(children: [
-        Row(children: [
-
-        ],)
-      ],),
+      appBar: AppBar(title: Text('  ثبت کردن شاگرد جدید ')),
+      body: Column(children: [Row(children: [])]),
     );
   }
 }

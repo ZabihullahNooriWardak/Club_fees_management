@@ -115,6 +115,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @addStudentPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add new student'**
+  String get addStudentPageTitle;
+
+  /// No description provided for @homePageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Student Fees management'**
+  String get homePageTitle;
 }
 
 class _AppLocalizationsDelegate

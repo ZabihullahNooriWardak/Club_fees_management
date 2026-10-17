@@ -24,14 +24,15 @@ class _MyAppState extends State<MyApp> {
         final lang = ref.watch(languageProvider);
 
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           locale: lang,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          title: 'Flutter Demo',
+          title: 'Boxing club',
           theme: ThemeData(
             colorScheme: .fromSeed(seedColor: Colors.deepPurple),
           ),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          home: const MyHomePage(),
         );
       },
     );

@@ -3,5 +3,7 @@
 
   "hello": "Hello",
   "welcome": "Welcome",
-  "language": "Language"
+  "language": "Language",
+  "addStudentPageTitle": "Add new student",
+  "homePageTitle": "Student Fees management"
 }

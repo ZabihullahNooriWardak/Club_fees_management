@@ -3,6 +3,8 @@
 
   "hello": "سلام",
   "welcome": "خوش آمدید",
-  "language":"زبان"
+  "language":"زبان",
+  "addStudentPageTitle": "ثبت کردن شاگرد جدید ",
+  "homePageTitle" : "سیستم مدیریت فیس  "
 
 }

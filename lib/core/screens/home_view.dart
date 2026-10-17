@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/l10n/app_localizations.dart';
-import 'package:untitled1/modules/student/presentation/screens/add_student_page.dart';
 import 'package:untitled1/modules/language/domain/models/enums/language_enum.dart';
 import 'package:untitled1/modules/language/presentation/controllers/language_controller.dart';
+import 'package:untitled1/modules/student/presentation/screens/add_student_page.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -38,17 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
 
-        title: Text(widget.title),
+        title: Text(AppLocalizations.of(context)!.homePageTitle),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(AppLocalizations.of(context)!.hello),
-          ],
-        ),
-      ),
+      body: Center(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
@@ -60,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         },
-        tooltip: 'Increment',
+        tooltip: 'Add student',
         child: const Icon(Icons.add),
       ),
     );

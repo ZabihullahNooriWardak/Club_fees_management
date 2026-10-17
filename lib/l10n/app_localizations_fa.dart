@@ -17,4 +17,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get language => 'زبان';
+
+  @override
+  String get addStudentPageTitle => 'ثبت کردن شاگرد جدید ';
+
+  @override
+  String get homePageTitle => 'سیستم مدیریت فیس  ';
 }

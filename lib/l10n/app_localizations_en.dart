@@ -17,4 +17,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get addStudentPageTitle => 'Add new student';
+
+  @override
+  String get homePageTitle => 'Student Fees management';
 }

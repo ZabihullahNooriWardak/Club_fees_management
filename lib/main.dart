@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled1/core/screens/home_view.dart';
 import 'package:untitled1/modules/language/presentation/controllers/language_controller.dart';
 
+import 'core/presentation/screens/home_view.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {
@@ -23,18 +23,24 @@ class _MyAppState extends State<MyApp> {
       builder: (context, ref, child) {
         final lang = ref.watch(languageProvider);
 
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          locale: lang,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          title: 'Boxing club',
-          theme: ThemeData(
-            colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-          ),
-          home: const MyHomePage(),
+        return lang.when(
+          data: (data) => _buildMaterialApp(local: data),
+          error: (error, stackTrace) => _buildMaterialApp(),
+          loading: () => _buildMaterialApp(),
         );
       },
+    );
+  }
+
+  Widget _buildMaterialApp({Locale? local}) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: local ?? Locale('en'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      title: 'Boxing club',
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      home: const HomePage(),
     );
   }
 }

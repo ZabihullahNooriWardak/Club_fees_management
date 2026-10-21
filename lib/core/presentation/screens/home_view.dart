@@ -5,14 +5,14 @@ import 'package:untitled1/modules/language/domain/models/enums/language_enum.dar
 import 'package:untitled1/modules/language/presentation/controllers/language_controller.dart';
 import 'package:untitled1/modules/student/presentation/screens/add_student_page.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   LanguageEnum selectedLang = LanguageEnum.english;
 
   @override
@@ -69,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   selectedLang = value!;
                 });
 
-                ref.read(languageProvider.notifier).changeLanguage();
+                final locale = ref
+                    .read(languageProvider.notifier)
+                    .changeLanguage();
               },
               //
               child: SafeArea(

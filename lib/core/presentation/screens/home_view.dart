@@ -5,18 +5,23 @@ import 'package:untitled1/modules/language/domain/models/enums/language_enum.dar
 import 'package:untitled1/modules/language/presentation/controllers/language_controller.dart';
 import 'package:untitled1/modules/student/presentation/screens/add_student_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    LanguageEnum selectedLang = LanguageEnum.english;
 
-class _HomePageState extends State<HomePage> {
-  LanguageEnum selectedLang = LanguageEnum.english;
+    final langProvider = ref.watch(
+      languageProvider.select((state) => state.value),
+    );
 
-  @override
-  Widget build(BuildContext context) {
+    if (langProvider != null) {
+      if (langProvider.languageCode == 'fa') {
+        selectedLang = LanguageEnum.persian;
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -26,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                 PopupMenuItem(
                   child: Text(AppLocalizations.of(context)!.language),
                   onTap: () {
-                    _displayLanguageSelectionSheet(context);
+                    _displayLanguageSelectionSheet(context, selectedLang);
                   },
                 ),
               ];
@@ -56,7 +61,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _displayLanguageSelectionSheet(BuildContext context) {
+  void _displayLanguageSelectionSheet(
+    BuildContext context,
+    LanguageEnum selectedLang,
+  ) {
     showModalBottomSheet(
       context: context,
       builder: (context) {

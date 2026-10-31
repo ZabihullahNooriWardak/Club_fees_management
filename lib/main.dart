@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:untitled1/core/screens/home_view.dart';
 import 'package:untitled1/modules/language/presentation/controllers/language_controller.dart';
 
-import 'core/presentation/screens/home_view.dart';
 import 'l10n/app_localizations.dart';
 
 void main() {

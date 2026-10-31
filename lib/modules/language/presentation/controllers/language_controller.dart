@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled1/core/domain/models/enums/app_cache_enum.dart';
-import 'package:untitled1/core/presentation/controllers/app_cache_repository_provider.dart';
+import 'package:untitled1/core/controllers/app_cache_repository_provider.dart';
+import 'package:untitled1/core/enums/app_cache_enum.dart';
 
 class Language extends AsyncNotifier<Locale> {
   @override
